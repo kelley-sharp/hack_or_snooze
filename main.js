@@ -1,5 +1,6 @@
 $(function() {
   $('#site_form').submit(addSiteToList);
+  $('.stories').on('click', 'i', changeStar);
 });
 
 function addSiteToList(e) {
@@ -11,4 +12,9 @@ function addSiteToList(e) {
   $('.stories').append(
     `<li><i class="far fa-star"></i><a href="${siteUrl}">${siteTitle}</a><small>(${shortUrl})</small></li>`
   );
+  e.target.reset();
+}
+
+function changeStar(e) {
+  $(e.target).toggleClass('fas fa-star far fa-star');
 }
